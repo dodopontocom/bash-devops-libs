@@ -26,6 +26,7 @@ function init() {
     cd "${terraform_path}"
     if [[ ${bucket} ]] && [[ ${prefix} ]]; then
       # Passing backEnd config on the fly
+      echoInfo "Initializing GCP backEnd from given config."
       terraform init -backend-config="bucket=${bucket}" -backend-config="prefix=${prefix}"
       exitOnError "Failed to initialize terraform"
     else
