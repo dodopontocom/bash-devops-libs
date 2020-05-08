@@ -21,12 +21,12 @@ checkBins terraform || return ${?}
 # usage: init <terraform path>
 function init() {
 
-    getArgs "terraform_path"
+    getArgs "terraform_path @bucket prefix"
+    echoInfo ${bucket} ${prefix}
+    #cd "${terraform_path}"
 
-    cd "${terraform_path}"
-
-    terraform init
-    exitOnError "Failed to initialize terraform"
+    #terraform init
+    #exitOnError "Failed to initialize terraform"
 }
 
 ### Apply terraform plan
