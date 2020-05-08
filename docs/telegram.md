@@ -24,3 +24,26 @@ Check Telegram documentation to [Create a bot and Generating an authorization to
 sendMessage <TELEGRAM_BOT_TOKEN> <TELEGRAM_NOTIFICATION_ID> <TELEGRAM_MESSAGE>
 ```
 
+# telegram.validateToken()
+
+Validate if the token is valid
+
+### Arguments
+
+* $TELEGRAM_BOT_TOKEN telegram bot token
+
+### Exit codes
+
+* **0**: If token is valid
+* **1**: If token is not valid
+
+### Output on stdout
+
+* Variables not declared
+
+### Example
+
+```bash
+validateToken <TELEGRAM_BOT_TOKEN>
+```
+
