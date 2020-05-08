@@ -20,7 +20,7 @@ function sendMessage() {
     curl -X POST \
                 -d chat_id=${TELEGRAM_NOTIFICATION_ID} \
                 -d text="${TELEGRAM_MESSAGE}" \
-                https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage
+                https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage > /dev/null 2>&1
     exitOnError "Error while trying to use telegram api to send the message."
 
 }
@@ -40,7 +40,7 @@ function validateToken() {
     _status=$(curl --silent "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getMe" | jq '.ok')
     if [[ "${_status}" == "false" ]]; then
         echoWarn "Token is invalid."
-        _result=-1
+        _result=1
     fi
     return ${_result}
 }
