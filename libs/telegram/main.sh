@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Verify Dependencies
-checkBins curl || return ${?}
-checkVars TELEGRAM_BOT_TOKEN TELEGRAM_NOTIFICATION_ID || return ${?}
+checkBins curl jq || return ${?}
 
 # @description Send a Telegram message via Telegram bot
 # @description Check Telegram documentation to [Create a bot and Generating an authorization token](https://core.telegram.org/bots#6-botfather)
@@ -24,4 +23,24 @@ function sendMessage() {
                 https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage
     exitOnError "Error while trying to use telegram api to send the message."
 
+}
+
+# @description Validate if the token is valid
+# @arg $TELEGRAM_BOT_TOKEN telegram bot token
+# @exitcode 0 If token is valid
+# @exitcode 1 If token is not valid
+# @stdout Variables not declared
+# @example 
+#   validateToken <TELEGRAM_BOT_TOKEN>
+function validateToken() {
+
+    getArgs "TELEGRAM_BOT_TOKEN"
+    local _result _status
+    _result=0
+    _status=$(curl --silent "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getMe" | jq '.ok')
+    if [[ "${_status}" == "false" ]]; then
+        echoWarn "Token is invalid."
+        _result=-1
+    fi
+    return ${_result}
 }
