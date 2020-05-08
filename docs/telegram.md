@@ -4,7 +4,8 @@
 
 # telegram.sendMessage()
 
-Send a Telegram message via Telegram bot
+Send a Telegram message via Telegram bot  
+Check Telegram documentation to [Create a bot and Generating an authorization token](https://core.telegram.org/bots#6-botfather)
 
 ### Arguments
 
