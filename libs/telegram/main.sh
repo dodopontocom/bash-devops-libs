@@ -29,7 +29,7 @@ function sendMessage() {
 # @arg $TELEGRAM_BOT_TOKEN telegram bot token
 # @exitcode 0 If token is valid
 # @exitcode 1 If token is not valid
-# @stdout Variables not declared
+# @stdout Token is invalid.
 # @example 
 #   validateToken <TELEGRAM_BOT_TOKEN>
 function validateToken() {
