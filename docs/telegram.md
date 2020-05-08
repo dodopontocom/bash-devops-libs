@@ -39,7 +39,7 @@ Validate if the token is valid
 
 ### Output on stdout
 
-* Variables not declared
+* Token is invalid.
 
 ### Example
 
