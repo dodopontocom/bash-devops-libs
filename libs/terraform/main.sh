@@ -22,11 +22,17 @@ checkBins terraform || return ${?}
 function init() {
 
     getArgs "terraform_path bucket= prefix="
-    echoInfo ${bucket} ${prefix}
-    #cd "${terraform_path}"
-
-    #terraform init
-    #exitOnError "Failed to initialize terraform"
+    
+    cd "${terraform_path}"
+    if [[ ${bucket} ]] && [[ ${prefix} ]]; then
+      # Passing backEnd config on the fly
+      terraform init -backend-config="bucket=${bucket}" -backend-config="prefix=${prefix}"
+      exitOnError "Failed to initialize terraform"
+    else
+      terraform init
+      exitOnError "Failed to initialize terraform"
+    fi
+    
 }
 
 ### Apply terraform plan
