@@ -5,6 +5,7 @@ checkBins curl || return ${?}
 checkVars TELEGRAM_BOT_TOKEN TELEGRAM_NOTIFICATION_ID || return ${?}
 
 # @description Send a Telegram message via Telegram bot
+# @description Check Telegram documentation to [Create a bot and Generating an authorization token](https://core.telegram.org/bots#6-botfather)
 # @arg $TELEGRAM_BOT_TOKEN telegram bot token
 # @arg $TELEGRAM_NOTIFICATION_ID user receiver telegram id
 # @arg $TELEGRAM_MESSAGE message content
