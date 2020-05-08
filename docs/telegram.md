@@ -1,5 +1,5 @@
 * [telegram.sendMessage()](#telegramsendmessage)
-
+* [telegram.validateToken()](#telegramvalidatetoken)
 
 
 # telegram.sendMessage()
