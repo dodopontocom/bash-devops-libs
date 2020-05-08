@@ -21,7 +21,7 @@ checkBins terraform || return ${?}
 # usage: init <terraform path>
 function init() {
 
-    getArgs "terraform_path @bucket prefix"
+    getArgs "terraform_path bucket= prefix="
     echoInfo ${bucket} ${prefix}
     #cd "${terraform_path}"
 
