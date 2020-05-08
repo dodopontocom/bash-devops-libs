@@ -20,7 +20,7 @@ function sendMessage() {
     curl -X POST \
                 -d chat_id=${TELEGRAM_NOTIFICATION_ID} \
                 -d text="${TELEGRAM_MESSAGE}" \
-                https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage > /dev/null 2>&1
+                https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage &> /dev/null
     exitOnError "Error while trying to use telegram api to send the message."
 
 }
