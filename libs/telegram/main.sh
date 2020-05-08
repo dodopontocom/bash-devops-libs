@@ -14,13 +14,13 @@ checkVars TELEGRAM_BOT_TOKEN TELEGRAM_NOTIFICATION_ID || return ${?}
 #   sendMessage <TELEGRAM_BOT_TOKEN> <TELEGRAM_NOTIFICATION_ID> <TELEGRAM_MESSAGE>
 function sendMessage() {
 
-    getArgs "TELEGRAM_BOT_TOKEN TELEGRAM_NOTIFICATION_ID"
+    getArgs "TELEGRAM_BOT_TOKEN TELEGRAM_NOTIFICATION_ID TELEGRAM_MESSAGE"
     
     # Send Telegram Notification
     curl -X POST \
                 -d chat_id=${TELEGRAM_NOTIFICATION_ID} \
-                -d text="test" \
+                -d text="${TELEGRAM_MESSAGE}" \
                 https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage
-    exitOnError "error"
+    exitOnError "Error while trying to use telegram api to send the message."
 
 }
