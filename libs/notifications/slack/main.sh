@@ -5,9 +5,9 @@ checkBins curl || return ${?}
 checkVars SLACK_BOT_TOKEN || return ${?}
 
 # @description Send a Slack message via Slack bot
-# @description Check Slack documentation to 
-#   Create a App and a user bot then Generating an authorization token
-#   Also how to create a workspace and add the bot to a channel 
+# @description Check Slack documentation to<br>
+#   Create a App and a user bot then Generating an authorization token<br>
+#   Also how to create a workspace and add the bot to a channel<br>
 #   [Slack API basics](https://api.slack.com/authentication/basics)
 # @arg $SLACK_BOT_TOKEN slack bot token
 # @arg $channel slack workspace channel name

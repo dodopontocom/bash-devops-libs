@@ -4,6 +4,8 @@
 checkBins curl jq || return ${?}
 checkVars TELEGRAM_BOT_TOKEN TELEGRAM_NOTIFICATION_ID || return ${?}
 
+telegram_api_url="https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}"
+
 # @description Send a Telegram message via Telegram bot
 # @description Check Telegram documentation to [Create a bot and Generating an authorization token](https://core.telegram.org/bots#6-botfather)
 # @arg $TELEGRAM_BOT_TOKEN telegram bot token
@@ -21,7 +23,7 @@ function sendMessage() {
     curl -X POST \
                 -d chat_id=${TELEGRAM_NOTIFICATION_ID} \
                 -d text="${message}" \
-                https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage &> /dev/null
+                ${telegram_api_url}/sendMessage &> /dev/null
     exitOnError "Error while trying to use telegram api to send the message."
 
 }
@@ -37,7 +39,7 @@ function validateToken() {
 
     local _result _status
     _result=0
-    _status=$(curl --silent "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getMe" | jq '.ok')
+    _status=$(curl --silent "${telegram_api_url}/getMe" | jq '.ok')
     if [[ "${_status}" == "false" ]]; then
         echoWarn "Token is invalid."
         _result=1
