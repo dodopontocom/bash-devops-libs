@@ -12,7 +12,7 @@ checkVars TELEGRAM_BOT_TOKEN TELEGRAM_NOTIFICATION_ID || return ${?}
 # @exitcode 0 Message is sent
 # @exitcode 1 Error to send the message
 # @example
-#   sendMessage <TELEGRAM_BOT_TOKEN> <TELEGRAM_NOTIFICATION_ID> <message>
+#   sendMessage <message>
 function sendMessage() {
 
     getArgs "message"
