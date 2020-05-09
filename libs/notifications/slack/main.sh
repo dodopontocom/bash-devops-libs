@@ -25,8 +25,8 @@ function sendMessageToChannel() {
     # Send Slack Notification
     curl -X POST -H 'Authorization: Bearer '"${SLACK_BOT_TOKEN}" \
     -H 'Content-type: application/json; charset=utf-8' \
-    --data '{"channel":'"${channel}"',"text":'"${message}"'}' ${slack_api_url} &> /dev/null
-
+    --data '{"channel":'"${channel}"',"text":'"${message}"'}' ${slack_api_url}
+    #--data '{"channel":'"${channel}"',"text":'"${message}"'}' ${slack_api_url} &> /dev/null
     exitOnError "Error while trying to use telegram api to send the message."
 
 }
