@@ -35,7 +35,6 @@ function sendMessage() {
 #   validateToken <TELEGRAM_BOT_TOKEN>
 function validateToken() {
 
-    getArgs "TELEGRAM_BOT_TOKEN"
     local _result _status
     _result=0
     _status=$(curl --silent "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getMe" | jq '.ok')
