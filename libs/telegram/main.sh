@@ -2,6 +2,7 @@
 
 # Verify Dependencies
 checkBins curl jq || return ${?}
+checkVars TELEGRAM_BOT_TOKEN TELEGRAM_NOTIFICATION_ID || return ${?}
 
 # @description Send a Telegram message via Telegram bot
 # @description Check Telegram documentation to [Create a bot and Generating an authorization token](https://core.telegram.org/bots#6-botfather)
@@ -14,7 +15,7 @@ checkBins curl jq || return ${?}
 #   sendMessage <TELEGRAM_BOT_TOKEN> <TELEGRAM_NOTIFICATION_ID> <TELEGRAM_MESSAGE>
 function sendMessage() {
 
-    getArgs "TELEGRAM_BOT_TOKEN TELEGRAM_NOTIFICATION_ID TELEGRAM_MESSAGE"
+    getArgs "TELEGRAM_MESSAGE"
     
     # Send Telegram Notification
     curl -X POST \
