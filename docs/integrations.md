@@ -1,10 +1,10 @@
-* [notifications.slack.sendMessageToChannel()](#notificationsslacksendmessagetochannel)
-* [notifications.telegram.sendMessage()](#notificationstelegramsendmessage)
-* [notifications.telegram.validateToken()](#notificationstelegramvalidatetoken)
+* [integrations.slack.sendMessageToChannel()](#integrationsslacksendmessagetochannel)
+* [integrations.telegram.sendMessage()](#integrationstelegramsendmessage)
+* [integrations.telegram.validateToken()](#integrationstelegramvalidatetoken)
 
 
 
-# notifications.slack.sendMessageToChannel()
+# integrations.slack.sendMessageToChannel()
 
 Send message to a Slack channel via bot
 
@@ -15,9 +15,9 @@ Also check how to create a workspace and add the bot to a channel
 
 ### Arguments
 
-* **SLACK_BOT_TOKEN** slack bot token
-* **channel** (slack): workspace channel name
-* **message** (message): content
+* **SLACK_BOT_TOKEN** (environment variable): slack bot token
+* **channel** (string): workspace channel name
+* **message** (string): content
 
 ### Exit codes
 
@@ -33,7 +33,7 @@ sendMessageToChannel <channel> <message>
 
 
 
-# notifications.telegram.sendMessage()
+# integrations.telegram.sendMessage()
 
 Send message to a Telegram user/group via bot
 
@@ -41,9 +41,9 @@ Check Telegram documentation to [Create a bot and Generating an authorization to
 
 ### Arguments
 
-* **TELEGRAM_BOT_TOKEN** telegram bot token
-* **TELEGRAM_NOTIFICATION_ID** user receiver telegram id
-* **message** (message): content
+* **TELEGRAM_BOT_TOKEN** (environment variable): telegram bot token
+* **TELEGRAM_NOTIFICATION_ID** (environment variable): user receiver telegram id
+* **message** (string): content
 
 ### Exit codes
 
@@ -56,13 +56,13 @@ Check Telegram documentation to [Create a bot and Generating an authorization to
 sendMessage <message>
 ```
 
-# notifications.telegram.validateToken()
+# integrations.telegram.validateToken()
 
 Validate if the token is valid
 
 ### Arguments
 
-* **TELEGRAM_BOT_TOKEN** telegram bot token
+* **TELEGRAM_BOT_TOKEN** (environment variable): telegram bot token
 
 ### Exit codes
 
