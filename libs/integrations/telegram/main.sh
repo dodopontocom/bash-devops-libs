@@ -2,7 +2,7 @@
 
 # Verify Dependencies
 checkBins curl jq || return ${?}
-checkVars TELEGRAM_BOT_TOKEN TELEGRAM_NOTIFICATION_ID || return ${?}
+checkVars TELEGRAM_BOT_TOKEN || return ${?}
 
 telegram_api_url="https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}"
 
@@ -14,10 +14,10 @@ telegram_api_url="https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}"
 # @exitcode 0 Message is sent
 # @exitcode 1 Error to send the message
 # @example
-#   sendMessage <message>
+#   sendMessage <TELEGRAM_NOTIFICATION_ID> <message>
 function sendMessage() {
 
-    getArgs "message"
+    getArgs "TELEGRAM_NOTIFICATION_ID message"
     
     # Send Telegram Notification
     curl -X POST \

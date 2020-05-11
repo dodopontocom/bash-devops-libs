@@ -53,7 +53,7 @@ Check Telegram documentation to [Create a bot and Generating an authorization to
 ### Example
 
 ```bash
-sendMessage <message>
+sendMessage <TELEGRAM_NOTIFICATION_ID> <message>
 ```
 
 # integrations.telegram.validateToken()
